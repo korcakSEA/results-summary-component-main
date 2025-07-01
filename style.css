@@ -1,0 +1,223 @@
+@font-face{
+    font-family: 'HankenGrotesk';
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('./assets/fonts/HankenGrotesk-VariableFont_wght.ttf')
+        format('truetype');
+}
+
+
+:root{
+
+    /* ## Colors */
+
+    /* ### Primary */
+
+    --primary-red-accent1: hsl(0, 100%, 67%);
+    --primary-yellow-accent2: hsl(39, 100%, 56%);
+    --primary-teal-accent3: hsl(166, 100%, 37%);
+    --primary-blue-accent4: hsl(234, 85%, 45%);
+
+    /* ## Gradients */
+    /* (background)  */
+
+    --gradientBg-slate-blue: hsl(252, 100%, 67%);
+    --gradientBg-royal-blue: hsl(241, 81%, 54%);
+
+    /* (circle) */
+    --gradientC-Violet-blue: hsla(256, 72%, 46%, 1);
+    --gradientC-Persian-blue: hsla(241, 72%, 46%, 0);
+
+    /* ### Neutral */
+
+    --natural-White: hsl(0, 0%, 100%);
+    --natural-Pale-blue: hsl(221, 100%, 96%);
+    --natural-Light-lavender: hsl(241, 100%, 89%);
+    --natural-Dark-gray-blue: hsl(224, 30%, 27%);
+    /* plain hsl values */
+    --clr-accent-1: 0, 100%, 67%;
+    --clr-accent-2: 39, 100%, 56%;
+    --clr-accent-3: 166, 100%, 37%;
+    --clr-accent-4: 234, 85%, 45%;
+
+    /* Font */
+
+    --font-family-default: 'HankenGrotesk', sans-serif;
+
+    /* Font sizes */
+    --font-xs:1.125rem;
+    --font-sm:1.25rem;
+    --font-md:1.5rem;
+    --font-lg:1.75rem;
+    --font-xl:2rem;
+    --font-xxl:5rem;
+
+    /* font weight */
+    --fw-regular:500;
+    --fw-bold:700;
+    --font-black:900;
+}
+
+*, ::before, ::after{
+    margin:0;
+    box-sizing:border-box;
+}
+
+img, svg{
+    max-width:100%;
+    height: auto;
+    display: block;
+}
+
+body{
+    font-family: var(--font-family-default);
+    font-size: var(--font-xs);
+    color: var(--natural-Dark-gray-blue);
+}
+
+.result-summary{
+    --border-radius:2rem;/* we will define it here but use it in media qurey*/
+    --padding:2.5rem; /*Children result and summary inherit*/
+    max-width: 46rem;
+    display: grid;
+}
+
+.section-title{
+    font-weight: var(--fw-bold);
+    font-size: var(--font-md);
+}
+
+.result{
+    text-align: center;
+    background: linear-gradient(var(--gradientBg-slate-blue), var(--gradientBg-royal-blue));
+    color:hsla(0, 0%, 100%, 0.6) ;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);/* definition for each corner*/
+}
+
+.result,
+.summary{
+    padding:var(--padding)
+}
+
+.button{
+    background-color: var(--natural-Dark-gray-blue);
+    color: var(--natural-White);
+    line-height: 1;
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 100vw;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:focus{
+    background: linear-gradient(var(--gradientBg-slate-blue), var(--gradientBg-royal-blue));
+}
+
+.flex-group{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.grid-flow{
+    display: grid;
+    align-content: start; /* if not used, grid will strech out. with the help of align-content layout is very nicely organized*/
+    gap: 1rem;
+}
+
+.grid-flow[data-spacing="large"]{
+    gap: 2rem; /* by selecting attribute can choose specific element to prevent inheriting from parent*/
+    /* That`s really nice! we still use gap property but elements that has this attribute have gap with 2 rem, instead of defining any margin-buttom */
+}
+
+.result-score{
+    display: grid;
+    place-content: center;
+    /* Above is another technique to center */
+    width: 12rem;
+    margin-inline: auto;
+    background:linear-gradient(hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
+    border-radius: 50%;
+    aspect-ratio: 1/1;/* to have a perfect circle*/
+}
+
+.result-score span {
+    display: block;
+    line-height: 1;
+    color: var(--natural-White);
+    font-size: var(--font-xxl);
+    font-weight: var(--font-black);
+}
+
+.result-rank{
+    color: var(--natural-White);
+    font-size: var(--font-xl);
+    font-weight: var(--fw-bold);
+}
+
+.summary-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius:.5rem ;
+    background-color: hsl(var(--item-color), .1);
+}
+
+/* All removed stroke values will be re-defined below*/
+.summary-item svg{
+    stroke: hsl(var(--item-color));
+}
+
+.summary-item__title {
+  color: hsl(var(--item-color));
+  font-weight: var(--fw-bold);
+} 
+
+.summary-item[data-item-type="accent-1"] {
+  --item-color: var(--clr-accent-1);/*all accent values defined as plain values, without hsl brackets (). So the values can be used in every variable defined.Kinde of globally defined. 
+  --clr-accent-1: 0, 100%, 67%; Now --item-color: 0, 100%, 67%. So in .summary-item__title class it becomes title and here .summary-item svg, it becomes svg color. here it comes the advantage of using attribute selector.
+  So by changing any value here: --clr-accent-1: 0, 100%, 67%, all background, title and svg color will be changed*/
+}
+.summary-item[data-item-type="accent-2"] {
+  --item-color: var(--clr-accent-2);
+}
+.summary-item[data-item-type="accent-3"] {
+  --item-color: var(--clr-accent-3);
+}
+.summary-item[data-item-type="accent-4"] {
+  --item-color: var(--clr-accent-4);
+}
+
+.summary-score {
+  font-weight: var(--fw-bold);
+  color: hsl(224, 30%, 27%, .5);
+}
+
+.summary-score span {
+  color: hsl(224, 30%, 27%);
+}
+
+
+@media (min-width:600px){
+    body{
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+
+    .result-summary{
+        margin-inline: 1rem;
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: .5rem 1rem 3rem hsla(224, 30%, 27%, .3);
+    }
+
+    .result{
+        border-radius: var(--border-radius);
+    }
+
+}
