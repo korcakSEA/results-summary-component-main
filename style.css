@@ -18,6 +18,12 @@
     --primary-teal-accent3: hsl(166, 100%, 37%);
     --primary-blue-accent4: hsl(234, 85%, 45%);
 
+        /* plain hsl values */
+    --clr-accent-1: 0, 100%, 67%;
+    --clr-accent-2: 39, 100%, 56%;
+    --clr-accent-3: 166, 100%, 37%;
+    --clr-accent-4: 234, 85%, 45%;
+
     /* ## Gradients */
     /* (background)  */
 
@@ -34,11 +40,7 @@
     --natural-Pale-blue: hsl(221, 100%, 96%);
     --natural-Light-lavender: hsl(241, 100%, 89%);
     --natural-Dark-gray-blue: hsl(224, 30%, 27%);
-    /* plain hsl values */
-    --clr-accent-1: 0, 100%, 67%;
-    --clr-accent-2: 39, 100%, 56%;
-    --clr-accent-3: 166, 100%, 37%;
-    --clr-accent-4: 234, 85%, 45%;
+
 
     /* Font */
 
@@ -123,13 +125,15 @@ body{
 
 .grid-flow{
     display: grid;
-    align-content: start; /* if not used, grid will strech out. with the help of align-content layout is very nicely organized*/
+    align-content: start; /* if not used, grid will strech out. 
+    with the help of align-content layout is very nicely organized*/
     gap: 1rem;
 }
 
 .grid-flow[data-spacing="large"]{
     gap: 2rem; /* by selecting attribute can choose specific element to prevent inheriting from parent*/
-    /* That`s really nice! we still use gap property but elements that has this attribute have gap with 2 rem, instead of defining any margin-buttom */
+    /* That`s really nice! we still use gap property but elements that has this attribute have gap with 2 rem,
+     instead of defining any margin-buttom */
 }
 
 .result-score{
@@ -137,10 +141,10 @@ body{
     place-content: center;
     /* Above is another technique to center */
     width: 12rem;
+    aspect-ratio: 1/1;/* to have a perfect circle*/
     margin-inline: auto;
     background:linear-gradient(hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
     border-radius: 50%;
-    aspect-ratio: 1/1;/* to have a perfect circle*/
 }
 
 .result-score span {
@@ -177,9 +181,12 @@ body{
 } 
 
 .summary-item[data-item-type="accent-1"] {
-  --item-color: var(--clr-accent-1);/*all accent values defined as plain values, without hsl brackets (). So the values can be used in every variable defined.Kinde of globally defined. 
-  --clr-accent-1: 0, 100%, 67%; Now --item-color: 0, 100%, 67%. So in .summary-item__title class it becomes title and here .summary-item svg, it becomes svg color. here it comes the advantage of using attribute selector.
-  So by changing any value here: --clr-accent-1: 0, 100%, 67%, all background, title and svg color will be changed*/
+  --item-color: var(--clr-accent-1);/*all accent values defined as plain values, without hsl brackets (). 
+  So the values can be used in every variable defined.Kinde of globally defined. 
+  --clr-accent-1: 0, 100%, 67%; Now --item-color: 0, 100%, 67%. 
+  So in .summary-item__title class it becomes title and here .summary-item svg, it becomes svg color. here it comes the advantage of using attribute selector.
+  So by changing any value here: --clr-accent-1: 0, 100%, 67%, all background,
+  title and svg color will be changed*/
 }
 .summary-item[data-item-type="accent-2"] {
   --item-color: var(--clr-accent-2);
