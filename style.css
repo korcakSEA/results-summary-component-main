@@ -131,9 +131,11 @@ body{
 }
 
 .grid-flow[data-spacing="large"]{
-    gap: 2rem; /* by selecting attribute can choose specific element to prevent inheriting from parent*/
-    /* That`s really nice! we still use gap property but elements that has this attribute have gap with 2 rem,
-     instead of defining any margin-buttom */
+    gap: 2rem; /* by selecting attribute can choose specific 
+    element to prevent inheriting from parent*/
+    /* That`s really nice! we still use gap property but elements 
+    that has this attribute have gap with 2 rem,
+    instead of defining any margin-buttom */
 }
 
 .result-score{
@@ -184,9 +186,10 @@ body{
   --item-color: var(--clr-accent-1);/*all accent values defined as plain values, without hsl brackets (). 
   So the values can be used in every variable defined.Kinde of globally defined. 
   --clr-accent-1: 0, 100%, 67%; Now --item-color: 0, 100%, 67%. 
-  So in .summary-item__title class it becomes title and here .summary-item svg, it becomes svg color. here it comes the advantage of using attribute selector.
+  So in .summary-item__title class it becomes title and here .summary-item svg, it becomes svg color. 
+  Here it comes the advantage of using attribute selector.
   So by changing any value here: --clr-accent-1: 0, 100%, 67%, all background,
-  title and svg color will be changed*/
+  title and svg color will be changed for specific summary item*/
 }
 .summary-item[data-item-type="accent-2"] {
   --item-color: var(--clr-accent-2);
